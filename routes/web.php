@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/test', function () {
+    return "Test Route";
+});
+
+Route::redirect('/youtube','/test');
+
+Route::get('/categories/{id}', function (string $categoryId) {
+    return "Categories : " . $categoryId;
+})->where('id', '[0-9]+');
